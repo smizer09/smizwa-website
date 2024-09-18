@@ -18,12 +18,16 @@ class Booking(db.Model):
     phone_num = db.Column(db.Integer(), unique=True, nullable=False)
     case = db.Column(db.String(120), unique=False, nullable=True)
     message = db.Column(db.String(900), unique=False, nullable=False)
+    
+with app.app_context():
+	db.create_all()
 
-    with app.app_context():
-    	db.create_all()
-    	def __repr__(self):
-        	return '<Booking %r>' % self.name, self.email, self.phone_num, self.case, self.message
+def __repr__(self):
+    return '<Booking %r>' % self.name, self.email, self.phone_num, self.case, self.message
 
+
+    		
+	
 
 #  contact us table model
 
@@ -37,13 +41,13 @@ class Contact(db.Model):
 
     with app.app_context():
     	db.create_all()
-    	def __repr__(self):
+    	
+def __repr__(self):
         	return '<Contact %r>' % self.name, self.email, self.phone_num, self.subject, self.message
     
 
-	
 
-
+"""
 
 
 @app.route('/')
@@ -83,8 +87,7 @@ def contact():
 
 		return render_template("contact.html")
 
-
-
+"""
 
 
 
